@@ -9,9 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.2.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@emotion/cache": "^11.10.0",
+    "@emotion/react": "^11.10.0",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@material-ui/pickers": "^3.3.10",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/lab": "^5.0.0-alpha.92",
+    "@mui/material": "^5.9.2",
+    "@mui/styled-engine": "^5.8.7",
+    "@mui/styles": "^5.9.2",
+    "clsx": "^1.2.1",
+    "date-fns": "^2.29.1",
+    "next": "^12.2.3",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "eslint": "8.21.0",
