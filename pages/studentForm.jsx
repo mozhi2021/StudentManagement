@@ -19,7 +19,6 @@ const genderItems = [
   { id: "female", title: "Female" },
   { id: "other", title: "Other" },
 ];
-  
 
 const initialFValues = {
   id: 0,
@@ -87,30 +86,31 @@ export default function StudentForm(props) {
         <Form onSubmit={handleSubmit}>
           <Grid container>
             <Grid item xs={12}>
-              <Controls.TextFields />
-              {/* <Controls.DatePicker
+              <div>
+                <Controls.TextFields />
+                {/* <Controls.DatePicker
                 label="Date of Birth"
                 name="dateofbirth"
                 value={values.subject}
                 onChange={handleInputChange}
                 error={errors.subject}
               /> */}
-              <Controls.Select
-                label="Religion"
-                name="departmentId"
-                value={values.departmentId}
-                onChange={handleInputChange}
-                options={studentService.getReligionCollection()}
-                error={errors.departmentId}
-              />
-
-              <Controls.Input
+                <Controls.Select
+                  label="Religion"
+                  name="departmentId"
+                  value={values.departmentId}
+                  onChange={handleInputChange}
+                  options={studentService.getReligionCollection()}
+                  error={errors.departmentId}
+                />
+              </div>
+              {/* <Controls.Input
                 label="Roll No:"
                 name="rollno"
                 value={values.subject}
                 onChange={handleInputChange}
                 error={errors.subject}
-              />
+              /> */}
               <Controls.RadioGroup
                 label="Gender"
                 name="gendergroup"
@@ -119,9 +119,7 @@ export default function StudentForm(props) {
                 items={genderItems}
                 error={errors.gendergroup}
               />
-              <Controls.P_Address 
-              label="Permanent Address"
-              />
+              <Controls.P_Address label="Permanent Address" />
             </Grid>
             <Grid container sx={{ justifyContent: "center" }}>
               <Controls.Button type="submit" text="Submit" />
