@@ -19,12 +19,17 @@ a {
   html {
     color-scheme: dark;
   }
+
   body {
     color: white;
     background: black;
   }
 }
 
-.baackground{
+.baackground {
   color: antiquewhite;
+}
+
+.headerstudent {
+  align-items: center;
 }

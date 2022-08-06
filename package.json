@@ -21,10 +21,14 @@
     "@mui/styles": "^5.9.2",
     "clsx": "^1.2.1",
     "date-fns": "^2.29.1",
+    "install": "^0.13.0",
     "next": "^12.2.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-datepicker": "^4.8.0",
+    "react-dom": "^18.2.0",
+    "react-imask": "^6.4.2",
+    "react-input-mask": "^2.0.4"
   },
   "devDependencies": {
     "eslint": "8.21.0",
