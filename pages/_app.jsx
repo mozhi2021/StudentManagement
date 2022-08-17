@@ -14,7 +14,10 @@ import createEmotionCache from "../styles/createEmotionCache.js";
 import theme from "../styles/theme";
 import "/styles/globals.css";
 import Header from "../components/header";
-import Router, { useRouter as UseRouter } from "next/router";
+import { useRouter as UseRouter } from "next/router";
+import { Router } from "next/router";
+// import { useRouter } from "next/router";
+
 // import PageHeader from "../components/pageHeader";
 
 const clientSideEmotionCache = createEmotionCache();
@@ -31,7 +34,7 @@ export default function MyApp(props) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="bgimage">
-          <Header  />
+          <Header />
           {/* <PageHeader /> */}
 
           <Component {...pageProps} />

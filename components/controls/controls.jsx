@@ -1,34 +1,33 @@
-import Input from "./Input";
-import RadioGroup from "./RadioGroup";
-import Select from "./Select";
-import Checkbox from "./Checkbox";
-import Button from "./Button";
-import Textarea from "./Textarea";
-import ActionButton from "./ActionButton";
-import TextFields from "./textFields";
-import BirthDatePicker from "./datePicker";
-import P_Address from "../p_address";
-import Pincode from "./pincode";
-import DtPicker from "./datePicker";
-import C_Address from "../c_address";
-import Phone from "./phone";
+import Input from "./input";
+import RadioGroup from "./radioGroup";
+import Checkbox from "./checkbox";
+import Button from "./button";
+import Textarea from "./textarea";
+import ActionButton from "./actionButton";
+import PincodeNumber from "./pincode";
+import DOB from "./datePicker";
+import StudentNumber from "./phone";
+import Dropdown from "./dropdown";
+import Address from "./address";
+import * as States from "./states";
 
 const Controls = {
   Input,
   RadioGroup,
-  Select,
   Checkbox,
-  BirthDatePicker,
   Button,
-  Phone,
-  Textarea,
   ActionButton,
-  TextFields,
-  P_Address,
-  C_Address,
-  Pincode,
-  DtPicker,
-  Phone,
+  StudentNumber,
+  Textarea,
+  PincodeNumber,
+  DOB,
+  Dropdown,
+  Address,
+  States,
+
+  // datePicker,
+  // phone,
+  // select,
 };
 
 export default Controls;

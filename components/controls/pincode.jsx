@@ -11,7 +11,7 @@ const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
   return (
     <IMaskInput
       {...other}
-      mask="0 0 0 0 0 0 0"
+      mask="000 000"
       definitions={{
         "#": /[1-9]/,
       }}
@@ -27,9 +27,9 @@ TextMaskCustom.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-export default function Pincode() {
+export default function PincodeNumber() {
   const [values, setValues] = React.useState({
-    textmask: "0 0 0 0 0 0 0",
+    textmask: "000 000",
   });
 
   const handleChange = (event) => {
@@ -47,7 +47,7 @@ export default function Pincode() {
         },
       }}
     >
-      <FormControl variant="standard">
+      <FormControl variant="outlined">
         <InputLabel htmlFor="formatted-text-mask-input">Pincode: </InputLabel>
         <Input
           value={values.textmask}

@@ -4,13 +4,16 @@ import { Form, useForm } from "../components/useForm";
 import { createTheme, Paper, Grid, Stack } from "@mui/material";
 import Controls from "../components/controls/Controls";
 import * as studentService from "../components/Services/studentService";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const theme = createTheme();
 const useStyles = makeStyles({
   pageContent: {
     margin: theme.spacing(13),
-    padding: theme.spacing(8),
-    // backgroundColor: "#eed971ff",
+    padding: theme.spacing(10),
     width: "80%",
   },
 });
@@ -24,7 +27,6 @@ const initialFValues = {
   id: 0,
   name: "",
   email: "",
-  phone: "",
   parentname: "",
   age: "",
   city: "",
@@ -32,7 +34,9 @@ const initialFValues = {
   departmentId: "",
   genderItems: "",
   religion: "",
-  dtPicker: "",
+  dob: "",
+  studentnumber: "",
+  pincodenumber: "",
 };
 
 export default function StudentForm(props) {
@@ -88,21 +92,26 @@ export default function StudentForm(props) {
         <Form onSubmit={handleSubmit}>
           <Grid container>
             <Grid item xs={12}>
-              <Controls.TextFields />
-            </Grid>
-
-            <Grid item xs={12}>
-              <Controls.DtPicker
-                label="Date of Birth"
-                name="dtPicker"
-                value={values.dtPicker}
+              <Controls.Input
+                variant="outlined"
+                label="StudentName"
+                name="studentname"
+                value={values.studentname}
                 onChange={handleInputChange}
-                error={errors.dtPicker}
+                error={errors.studentname}
+              />
+              <Controls.Input
+                variant="outlined"
+                label="Parent/GuardianName"
+                name="parent/guardianname"
+                value={values.parentguardianname}
+                onChange={handleInputChange}
+                error={errors.parentguardianname}
               />
             </Grid>
 
             <Grid item xs={6}>
-              <Controls.Select
+              <Controls.Dropdown
                 label="Religion"
                 name="departmentId"
                 value={values.departmentId}
@@ -123,24 +132,9 @@ export default function StudentForm(props) {
               />
             </Grid>
             <Grid item xs={6}>
-              <Controls.P_Address label="Permanent Address" />
-            </Grid>
-            <Grid item xs={6}>
-              <Controls.C_Address label="Communication Address" />
-            </Grid>
-            <Grid item xs={6}>
-              <Controls.Phone />
+              <Controls.StudentNumber />
             </Grid>
 
-            {/* <Phone
-              label="Phone Number"
-              name="phoneNumber"
-              value={values.phoneNumber}
-              onChange={handleInputChange}
-              required={true}
-              error={errors.phoneNumber}
-              variant="standard"
-            /> */}
             <Grid item xs={6}>
               <Controls.Input
                 label="Email"
@@ -151,9 +145,27 @@ export default function StudentForm(props) {
                 error={errors.email}
               />
             </Grid>
+            {/* <Controls.DOB
+              label="Date of Birth"
+              name="dob"
+              value={values.dob}
+              onChange={handleInputChange}
+              error={errors.dob}
+            /> */}
+            <Controls.Address
+              AddrValues={values}
+              onChange={handleInputChange}
+              AddrErrors={errors}
+            />
 
-            <Grid container sx={{ justifyContent: "center" }}>
-              <Controls.Button type="submit" text="Submit" />
+            <Grid item xs={6}>
+              <Grid container sx={{ justifyContent: "center" }}>
+                <Controls.Button type="submit" text="Submit" />
+              </Grid>
+            </Grid>
+
+            <Grid item xs={6}>
+              <Controls.Button text="Reset" onClick={resetForm} />
             </Grid>
           </Grid>
         </Form>

@@ -14,9 +14,14 @@ const bull = (
 
 export default function Header() {
   return (
-    <Card sx={{ minWidth: 400 }}>
-      <CardContent className="headerstudent">
-        <Typography sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
+    <Card sx={{ minWidth: 400, justifyContent: "center" }}>
+      <CardContent>
+        <Typography
+          sx={{ fontSize: 20, justifyContent: "center" }}
+          color="text.secondary"
+          gutterBottom
+          textAlign="center"
+        >
           Student Management
         </Typography>
       </CardContent>
