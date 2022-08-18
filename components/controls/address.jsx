@@ -1,5 +1,5 @@
 import React from "react";
-import States from "./states";
+import States from "../data/states";
 import Controls from "./Controls";
 
 export default function Address(props) {
@@ -9,7 +9,7 @@ export default function Address(props) {
     <>
       <Controls.Input
         name="address1"
-        label="Address"
+        label="Permanent Address"
         required={true}
         value={AddrValues.address1}
         onChange={onChange}
@@ -17,7 +17,7 @@ export default function Address(props) {
       />
       <Controls.Input
         name="address2"
-        label="Address2"
+        label="Communication Address"
         value={AddrValues.address2}
         onChange={onChange}
       />
@@ -38,14 +38,14 @@ export default function Address(props) {
         options={States.getStates()}
         error={AddrErrors.stateID}
       /> */}
-      {/* <userControls.ZipCode
-                    name='zip'
-                    label='Zip'
-                    required={true}
-                    zipValue={AddrValues.zip}
-                    onChange={onChange}
-                    error={AddrErrors.zip}
-                /> */}
+      <Controls.PincodeNumber
+        name="pin"
+        label="Pincode"
+        required={true}
+        Value={AddrValues.pin}
+        onChange={onChange}
+        error={AddrErrors.pin}
+      />
     </>
   );
 }

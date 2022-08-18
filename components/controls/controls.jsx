@@ -9,7 +9,7 @@ import DOB from "./datePicker";
 import StudentNumber from "./phone";
 import Dropdown from "./dropdown";
 import Address from "./address";
-import * as States from "./states";
+import * as States from "../data/states";
 
 const Controls = {
   Input,

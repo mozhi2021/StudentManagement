@@ -110,7 +110,7 @@ export default function StudentForm(props) {
               />
             </Grid>
 
-            <Grid item xs={6}>
+            <Grid item xs={12}>
               <Controls.Dropdown
                 label="Religion"
                 name="departmentId"
@@ -119,9 +119,7 @@ export default function StudentForm(props) {
                 options={studentService.getReligionCollection()}
                 error={errors.departmentId}
               />
-            </Grid>
 
-            <Grid item xs={6}>
               <Controls.RadioGroup
                 label="Gender"
                 name="gendergroup"
@@ -131,11 +129,9 @@ export default function StudentForm(props) {
                 error={errors.gendergroup}
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12}>
               <Controls.StudentNumber />
-            </Grid>
 
-            <Grid item xs={6}>
               <Controls.Input
                 label="Email"
                 name="email"

@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
+import { OutlinedInput } from "@mui/material";
 
 const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
   const { onChange, ...other } = props;
@@ -47,9 +48,9 @@ export default function PincodeNumber() {
         },
       }}
     >
-      <FormControl variant="outlined">
+      <FormControl>
         <InputLabel htmlFor="formatted-text-mask-input">Pincode: </InputLabel>
-        <Input
+        <OutlinedInput
           value={values.textmask}
           onChange={handleChange}
           name="textmask"
