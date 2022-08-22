@@ -4,12 +4,11 @@ import Checkbox from "./checkbox";
 import Button from "./button";
 import Textarea from "./textarea";
 import ActionButton from "./actionButton";
-import PincodeNumber from "./pincode";
-import DOB from "./datePicker";
-import StudentNumber from "./phone";
+import Pincode from "./pincode";
+import DateOfBirth from "./datePicker";
 import Dropdown from "./dropdown";
 import Address from "./address";
-import * as States from "../data/states";
+import Phone from "./phone";
 
 const Controls = {
   Input,
@@ -17,17 +16,12 @@ const Controls = {
   Checkbox,
   Button,
   ActionButton,
-  StudentNumber,
   Textarea,
-  PincodeNumber,
-  DOB,
+  Pincode,
+  DateOfBirth,
   Dropdown,
   Address,
-  States,
-
-  // datePicker,
-  // phone,
-  // select,
+  Phone,
 };
 
 export default Controls;

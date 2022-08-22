@@ -1,0 +1,18 @@
+export const getCountries = () => [
+  { id: "1", title: "Australia" },
+  { id: "2", title: "Canada" },
+  { id: "3", title: "Denmark" },
+  { id: "4", title: "Swaziland" },
+  { id: "5", title: "France" },
+  { id: "6", title: "Germany" },
+  { id: "7", title: "India" },
+  { id: "8", title: "Japan" },
+  { id: "9", title: "Kuwait" },
+  { id: "10", title: "Malaysia" },
+  { id: "11", title: "Mexico" },
+  { id: "12", title: "New Zealand" },
+  { id: "13", title: "Qatar" },
+  { id: "14", title: "Spain" },
+  { id: "15", title: "United Arab Emirates" },
+  { id: "16", title: "United States of America" },
+];

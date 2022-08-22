@@ -1,14 +1,14 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import { IMaskInput } from "react-imask";
-import Box from "@mui/material/Box";
 import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import { TextField } from "@mui/material";
 import { OutlinedInput } from "@mui/material";
+import { FormHelperText } from "@mui/material";
 
-const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
+const TextMaskPhone = React.forwardRef(function TextMaskPhone(props, ref) {
   const { onChange, ...other } = props;
   return (
     <IMaskInput
@@ -24,53 +24,40 @@ const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
   );
 });
 
-TextMaskCustom.propTypes = {
+TextMaskPhone.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default function StudentNumber() {
-  const [values, setValues] = React.useState({
-    textmask: "000 000 0000",
-  });
-
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
-  };
+export default function Phone(props) {
+  const {
+    name,
+    label,
+    value,
+    onChange,
+    error = null,
+    required,
+    disabled,
+    readOnly,
+  } = props;
 
   return (
-    <Box
-      sx={{
-        "& > :not(style)": {
-          m: 1,
-        },
-      }}
-    >
-      <FormControl variant="standard">
-        <InputLabel htmlFor="formatted-text-mask-input">
-          Phone Number
-        </InputLabel>
-        <OutlinedInput
-          value={values.textmask}
-          onChange={handleChange}
-          name="textmask"
-          id="formatted-text-mask-input"
-          variant="outlined"
-          inputComponent={TextMaskCustom}
-        />
-        {/* <TextField
-          variant="outlined"
-          label= Phone Number
-          name= {phonenumber }
-          value={value}
-          onChange={onChange}
-          {...(error && { error: true, helperText: error })}
-          inputProps={{ maxLength: 10 }}
-        /> */}
-      </FormControl>
-    </Box>
+    <FormControl {...(error && { error: true })} size="small">
+      <InputLabel htmlFor="formatted-text-mask-input">
+        {required ? label + " *" : label}
+      </InputLabel>
+      <OutlinedInput
+        name={name}
+        label={required ? label + " *" : label}
+        value={value}
+        onChange={onChange}
+        disabled={disabled || false}
+        inputComponent={TextMaskPhone}
+        inputProps={{
+          readOnly: Boolean(readOnly || false),
+        }}
+      />
+      {error && <FormHelperText>{error}</FormHelperText>}
+    </FormControl>
   );
 }

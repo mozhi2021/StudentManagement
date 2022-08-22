@@ -4,10 +4,6 @@ import { Form, useForm } from "../components/useForm";
 import { createTheme, Paper, Grid, Stack } from "@mui/material";
 import Controls from "../components/controls/Controls";
 import * as studentService from "../components/Services/studentService";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const theme = createTheme();
 const useStyles = makeStyles({
@@ -34,9 +30,6 @@ const initialFValues = {
   departmentId: "",
   genderItems: "",
   religion: "",
-  dob: "",
-  studentnumber: "",
-  pincodenumber: "",
 };
 
 export default function StudentForm(props) {
@@ -91,77 +84,77 @@ export default function StudentForm(props) {
       <Paper className={classes.pageContent}>
         <Form onSubmit={handleSubmit}>
           <Grid container>
-            <Grid item xs={12}>
-              <Controls.Input
-                variant="outlined"
-                label="StudentName"
-                name="studentname"
-                value={values.studentname}
-                onChange={handleInputChange}
-                error={errors.studentname}
-              />
-              <Controls.Input
-                variant="outlined"
-                label="Parent/GuardianName"
-                name="parent/guardianname"
-                value={values.parentguardianname}
-                onChange={handleInputChange}
-                error={errors.parentguardianname}
-              />
-            </Grid>
+            <Controls.Input
+              variant="outlined"
+              label="StudentName"
+              name="studentname"
+              value={values.studentname}
+              onChange={handleInputChange}
+              error={errors.studentname}
+            />
+            <Controls.Input
+              variant="outlined"
+              label="ParentGuardianName"
+              name="parentguardianname"
+              value={values.parentguardianname}
+              onChange={handleInputChange}
+              error={errors.parentguardianname}
+            />
 
-            <Grid item xs={12}>
-              <Controls.Dropdown
-                label="Religion"
-                name="departmentId"
-                value={values.departmentId}
-                onChange={handleInputChange}
-                options={studentService.getReligionCollection()}
-                error={errors.departmentId}
-              />
+            <Controls.Dropdown
+              label="Religion"
+              name="departmentId"
+              value={values.departmentId}
+              onChange={handleInputChange}
+              options={studentService.getReligionCollection()}
+              error={errors.departmentId}
+            />
 
-              <Controls.RadioGroup
-                label="Gender"
-                name="gendergroup"
-                value={values.gendergroup}
-                onChange={handleInputChange}
-                items={genderItems}
-                error={errors.gendergroup}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Controls.StudentNumber />
+            <Controls.RadioGroup
+              label="Gender"
+              name="gendergroup"
+              value={values.gendergroup}
+              onChange={handleInputChange}
+              items={genderItems}
+              error={errors.gendergroup}
+            />
+            <Controls.Phone
+              name="studentphonenumber"
+              label="Student Phone Number"
+              value={values.studentphonenumber}
+              onChange={handleInputChange}
+              required={true}
+              error={errors.studentphonenumber}
+            />
 
-              <Controls.Input
-                label="Email"
-                name="email"
-                value={values.email}
-                onChange={handleInputChange}
-                required={true}
-                error={errors.email}
-              />
-            </Grid>
-            {/* <Controls.DOB
+            <Controls.Input
+              label="Email"
+              name="email"
+              value={values.email}
+              onChange={handleInputChange}
+              required={true}
+              error={errors.email}
+            />
+            <Controls.DateOfBirth
               label="Date of Birth"
               name="dob"
-              value={values.dob}
+              value={values.dateOfBirth}
               onChange={handleInputChange}
-              error={errors.dob}
-            /> */}
+              error={errors.dateOfBirth}
+            />
             <Controls.Address
               AddrValues={values}
               onChange={handleInputChange}
               AddrErrors={errors}
             />
 
-            <Grid item xs={6}>
-              <Grid container sx={{ justifyContent: "center" }}>
+            <Grid container>
+              <Grid item xs={4} paddingLeft="80px">
                 <Controls.Button type="submit" text="Submit" />
               </Grid>
-            </Grid>
-
-            <Grid item xs={6}>
-              <Controls.Button text="Reset" onClick={resetForm} />
+              <Grid item xs={4} paddingRight="50px">
+                <Controls.Button text="Reset" onClick={resetForm} />
+              </Grid>
             </Grid>
           </Grid>
         </Form>
