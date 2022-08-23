@@ -42,7 +42,7 @@ export default function Phone(props) {
   } = props;
 
   return (
-    <FormControl {...(error && { error: true })} size="small">
+    <FormControl {...(error && { error: true })} size="big">
       <InputLabel htmlFor="formatted-text-mask-input">
         {required ? label + " *" : label}
       </InputLabel>

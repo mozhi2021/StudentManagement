@@ -84,75 +84,79 @@ export default function StudentForm(props) {
       <Paper className={classes.pageContent}>
         <Form onSubmit={handleSubmit}>
           <Grid container>
-            <Controls.Input
-              variant="outlined"
-              label="StudentName"
-              name="studentname"
-              value={values.studentname}
-              onChange={handleInputChange}
-              error={errors.studentname}
-            />
-            <Controls.Input
-              variant="outlined"
-              label="ParentGuardianName"
-              name="parentguardianname"
-              value={values.parentguardianname}
-              onChange={handleInputChange}
-              error={errors.parentguardianname}
-            />
+            <Grid item xs={12}>
+              <Controls.Input
+                variant="outlined"
+                label="StudentName"
+                name="studentname"
+                value={values.studentname}
+                onChange={handleInputChange}
+                error={errors.studentname}
+              />
+              <Controls.Input
+                variant="outlined"
+                label="ParentGuardianName"
+                name="parentguardianname"
+                value={values.parentguardianname}
+                onChange={handleInputChange}
+                error={errors.parentguardianname}
+              />
 
-            <Controls.Dropdown
-              label="Religion"
-              name="departmentId"
-              value={values.departmentId}
-              onChange={handleInputChange}
-              options={studentService.getReligionCollection()}
-              error={errors.departmentId}
-            />
+              <Controls.Dropdown
+                label="Religion"
+                name="departmentId"
+                value={values.departmentId}
+                onChange={handleInputChange}
+                options={studentService.getReligionCollection()}
+                error={errors.departmentId}
+              />
 
-            <Controls.RadioGroup
-              label="Gender"
-              name="gendergroup"
-              value={values.gendergroup}
-              onChange={handleInputChange}
-              items={genderItems}
-              error={errors.gendergroup}
-            />
-            <Controls.Phone
-              name="studentphonenumber"
-              label="Student Phone Number"
-              value={values.studentphonenumber}
-              onChange={handleInputChange}
-              required={true}
-              error={errors.studentphonenumber}
-            />
+              <Controls.RadioGroup
+                label="Gender"
+                name="gendergroup"
+                value={values.gendergroup}
+                onChange={handleInputChange}
+                items={genderItems}
+                error={errors.gendergroup}
+              />
+              <Controls.Phone
+                name="studentphonenumber"
+                label="Student Phone Number"
+                value={values.studentphonenumber}
+                onChange={handleInputChange}
+                required={true}
+                error={errors.studentphonenumber}
+              />
 
-            <Controls.Input
-              label="Email"
-              name="email"
-              value={values.email}
-              onChange={handleInputChange}
-              required={true}
-              error={errors.email}
-            />
-            <Controls.DateOfBirth
-              label="Date of Birth"
-              name="dob"
-              value={values.dateOfBirth}
-              onChange={handleInputChange}
-              error={errors.dateOfBirth}
-            />
-            <Controls.Address
-              AddrValues={values}
-              onChange={handleInputChange}
-              AddrErrors={errors}
-            />
+              <Controls.Input
+                label="Email"
+                name="email"
+                value={values.email}
+                onChange={handleInputChange}
+                required={true}
+                error={errors.email}
+              />
+              <Controls.DateOfBirth
+                label="Date of Birth"
+                name="dob"
+                value={values.dateOfBirth}
+                onChange={handleInputChange}
+                error={errors.dateOfBirth}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Controls.Address
+                AddrValues={values}
+                onChange={handleInputChange}
+                AddrErrors={errors}
+              />
+            </Grid>
 
-            <Grid container>
-              <Grid item xs={4} paddingLeft="80px">
+            <Grid container alignItems="flex - end">
+              <Grid item xs={6} paddingLeft="80px">
                 <Controls.Button type="submit" text="Submit" />
               </Grid>
-              <Grid item xs={4} paddingRight="50px">
+              <Grid item xs={6} paddingRight="80px">
                 <Controls.Button text="Reset" onClick={resetForm} />
               </Grid>
             </Grid>
