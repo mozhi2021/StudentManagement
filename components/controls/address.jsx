@@ -13,14 +13,6 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import { width } from "@mui/system";
 
 export default function Address(props) {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      window.alert(JSON.stringify(values));
-      resetForm();
-    }
-  };
-
   const { onChange, AddrValues, AddrErrors = null } = props;
 
   return (
@@ -36,49 +28,11 @@ export default function Address(props) {
               <Typography>Permanent Address</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>
-                <Controls.Input
-                  name="address1"
-                  // label="Permanent Address"
-                  required={true}
-                  value={AddrValues.address1}
-                  onChange={onChange}
-                  error={AddrErrors.address1}
-                />
-                <Controls.Input
-                  name="city"
-                  label="City"
-                  required={true}
-                  value={AddrValues.city}
-                  onChange={onChange}
-                  error={AddrErrors.city}
-                />
-                <Controls.Dropdown
-                  name="stateID"
-                  label="State"
-                  required={true}
-                  value={AddrValues.stateID}
-                  onChange={onChange}
-                  options={States.getStates()}
-                  error={AddrErrors.stateID}
-                />
-                <Controls.Dropdown
-                  name="countryID"
-                  label="Country"
-                  required={true}
-                  value={AddrValues.countryID}
-                  onChange={onChange}
-                  options={Countries.getCountries()}
-                  error={AddrErrors.countryID}
-                />
-                <Controls.Pincode
-                  name="pincodenumber"
-                  label="PincodeNumber"
-                  // value={values.pincodenumber}
-                  // onChange={handleInputChange}
-                  // error={errors.pincodenumber}
-                />
-              </Typography>
+              <Controls.Address1
+                AddrValues={AddrValues}
+                onChange={onChange}
+                AddrErrors={AddrErrors}
+              />
             </AccordionDetails>
           </Accordion>
           <Accordion sx={{ width: "71%" }}>
@@ -90,48 +44,11 @@ export default function Address(props) {
               <Typography>Communication Address</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>
-                <Controls.Input
-                  name="address2"
-                  // label="Communication Address"
-                  value={AddrValues.address2}
-                  onChange={onChange}
-                />
-                <Controls.Input
-                  name="city"
-                  label="City"
-                  required={true}
-                  value={AddrValues.city}
-                  onChange={onChange}
-                  error={AddrErrors.city}
-                />
-                <Controls.Dropdown
-                  name="stateID"
-                  label="State"
-                  required={true}
-                  value={AddrValues.stateID}
-                  onChange={onChange}
-                  options={States.getStates()}
-                  error={AddrErrors.stateID}
-                />
-                <Controls.Dropdown
-                  name="countryID"
-                  label="Country"
-                  required={true}
-                  value={AddrValues.countryID}
-                  onChange={onChange}
-                  options={Countries.getCountries()}
-                  error={AddrErrors.countryID}
-                />
-
-                <Controls.Pincode
-                  name="pincodenumber"
-                  label="PincodeNumber"
-                  // value={values.pincodenumber}
-                  // onChange={handleInputChange}
-                  // error={errors.pincodenumber}
-                />
-              </Typography>
+              <Controls.Address2
+                AddrValues={AddrValues}
+                onChange={onChange}
+                AddrErrors={AddrErrors}
+              />
             </AccordionDetails>
           </Accordion>
         </Grid>

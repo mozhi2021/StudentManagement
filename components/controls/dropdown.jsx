@@ -22,7 +22,6 @@ export default function Dropdown(props) {
       variant="outlined"
       {...(error && { error: true, helperText: error })}
     >
-      {/* <InputLabel>{label}</InputLabel> */}
       <InputLabel>{required ? label + " *" : label}</InputLabel>
 
       <MuiSelect label={label} name={name} value={value} onChange={onChange}>

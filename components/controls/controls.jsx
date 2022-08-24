@@ -9,6 +9,8 @@ import DateOfBirth from "./datePicker";
 import Dropdown from "./dropdown";
 import Address from "./address";
 import Phone from "./phone";
+import Address1 from "./address1";
+import Address2 from "./address2";
 
 const Controls = {
   Input,
@@ -21,6 +23,9 @@ const Controls = {
   DateOfBirth,
   Dropdown,
   Address,
+  Address1,
+  Address2,
+
   Phone,
 };
 

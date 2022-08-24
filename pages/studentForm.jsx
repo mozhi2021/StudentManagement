@@ -151,12 +151,12 @@ export default function StudentForm(props) {
                 AddrErrors={errors}
               />
             </Grid>
+            <br />
+            <br />
 
-            <Grid container alignItems="flex - end">
-              <Grid item xs={6} paddingLeft="80px">
+            <Grid container>
+              <Grid item xs={12}>
                 <Controls.Button type="submit" text="Submit" />
-              </Grid>
-              <Grid item xs={6} paddingRight="80px">
                 <Controls.Button text="Reset" onClick={resetForm} />
               </Grid>
             </Grid>
