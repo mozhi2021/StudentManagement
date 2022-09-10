@@ -5,12 +5,12 @@ import Button from "./button";
 import Textarea from "./textarea";
 import ActionButton from "./actionButton";
 import Pincode from "./pincode";
-import DateOfBirth from "./datePicker";
 import Dropdown from "./dropdown";
 import Address from "./address";
 import Phone from "./phone";
-import Address1 from "./address1";
-import Address2 from "./address2";
+import P_address from "./p_address";
+import C_address from "./c_address";
+import DtPicker from "./datePicker";
 
 const Controls = {
   Input,
@@ -20,12 +20,11 @@ const Controls = {
   ActionButton,
   Textarea,
   Pincode,
-  DateOfBirth,
   Dropdown,
   Address,
-  Address1,
-  Address2,
-
+  P_address,
+  C_address,
+  DtPicker,
   Phone,
 };
 

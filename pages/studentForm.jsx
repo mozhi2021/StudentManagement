@@ -21,15 +21,24 @@ const genderItems = [
 
 const initialFValues = {
   id: 0,
-  name: "",
   email: "",
-  parentname: "",
+  parentguardianname: "",
   age: "",
-  city: "",
-  state: "",
   departmentId: "",
   genderItems: "",
   religion: "",
+  studentphonenumber: "",
+  studentname: "",
+  dateofbirth: new Date(),
+  addressone: "",
+  addresstwo: "",
+  cityone: "",
+  citytwo: "",
+  stateIDone: "",
+  countryIDone: "",
+  stateIDtwo: "",
+  countryIDtwo: "",
+  gendergroup: "",
 };
 
 export default function StudentForm(props) {
@@ -39,45 +48,66 @@ export default function StudentForm(props) {
   const validate = (fieldValues = values) => {
     let temp = { ...errors };
 
-    if ("phoneNumber" in fieldValues) {
-      temp.phoneNumber = fieldValues.phoneNumber ? "" : "Required";
-      if (fieldValues.phoneNumber != "")
-        temp.phoneNumber = /^[0-9]{10}$/.test(fieldValues.phoneNumber)
+    if ("studentname" in fieldValues) {
+      temp.studentname = fieldValues.studentname ? "" : "Required.";
+      if (fieldValues.studentname != "")
+        temp.studentname = /^[A-Za-z]+$/.test(fieldValues.studentname)
           ? ""
-          : "Phone Number should be 10 digit numeric value";
+          : "Name should be alphabets";
+    }
+    if ("studentphonenumber" in fieldValues) {
+      if (
+        fieldValues.studentphonenumber != "" &&
+        fieldValues.studentphonenumber !== null &&
+        fieldValues.studentphonenumber.length !== 0
+      )
+        temp.studentphonenumber =
+          fieldValues.studentphonenumber.length < 14 ? "Required" : "";
     }
     if ("email" in fieldValues) {
-      temp.email = fieldValues.email ? "" : "Required";
-      if (fieldValues.email != "")
-        temp.email = /$^|.+@.+..+/.test(fieldValues.email)
+      if (fieldValues.email != "" && fieldValues.email !== null)
+        temp.email = /^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(
+          fieldValues.email
+        )
           ? ""
           : "Email is not valid";
     }
-    if ("subject" in fieldValues)
-      temp.subject = fieldValues.subject ? "" : "Required.";
-    if ("departmentId" in fieldValues)
-      temp.departmentId = fieldValues.departmentId ? "" : "Required";
 
-    if ("isAgreed" in fieldValues)
-      temp.isAgreed = fieldValues.isAgreed == true ? "" : "Required";
     setErrors({
       ...temp,
     });
     if (fieldValues == values) return Object.values(temp).every((x) => x == "");
   };
 
-  const { values, setValues, errors, setErrors, handleInputChange, resetForm } =
-    useForm(initialFValues, true, validate);
+  const {
+    values,
+    setValues,
+    errors,
+    setErrors,
+    handleInputChange,
+    resetForm,
+    readonly,
+  } = useForm(initialFValues, true, validate);
+
+  const classes = useStyles();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // window.alert(JSON.stringify(values));
+
     if (validate()) {
       window.alert(JSON.stringify(values));
-      resetForm();
     }
   };
 
-  const classes = useStyles();
+  useEffect(() => {
+    var today = new Date();
+    var birthDate = new Date(values.dateofbirth);
+    // var defaultDate = new Date()
+    // defaultDate.setDate(defaultDate.getDate() + 2)
+    var age = today.getFullYear() - birthDate.getFullYear();
+    values.age = age + " years";
+  }, [values.dateofbirth]);
 
   return (
     <>
@@ -86,16 +116,15 @@ export default function StudentForm(props) {
           <Grid container>
             <Grid item xs={12}>
               <Controls.Input
-                variant="outlined"
-                label="StudentName"
+                label="Student Name"
                 name="studentname"
                 value={values.studentname}
                 onChange={handleInputChange}
+                required={true}
                 error={errors.studentname}
               />
               <Controls.Input
-                variant="outlined"
-                label="ParentGuardianName"
+                label="Parent or Guardian Name"
                 name="parentguardianname"
                 value={values.parentguardianname}
                 onChange={handleInputChange}
@@ -136,14 +165,29 @@ export default function StudentForm(props) {
                 required={true}
                 error={errors.email}
               />
-              <Controls.DateOfBirth
-                label="Date of Birth"
-                name="dob"
-                value={values.dateOfBirth}
-                onChange={handleInputChange}
-                error={errors.dateOfBirth}
-              />
             </Grid>
+            <Grid container>
+              <Grid item width="49%">
+                <Controls.DtPicker
+                  label="Date of Birth"
+                  name="dateofbirth"
+                  value={values.dateofbirth}
+                  onChange={handleInputChange}
+                  error={errors.dateofbirth}
+                  // readOnly={readonly || true}
+                />
+              </Grid>
+              <Grid item width="30%">
+                <Controls.Input
+                  label="Age"
+                  name="age"
+                  value={values.age}
+                  onChange={handleInputChange}
+                  readOnly={readonly || true}
+                />
+              </Grid>
+            </Grid>
+
             <Grid item xs={12}>
               <Controls.Address
                 AddrValues={values}
@@ -151,14 +195,15 @@ export default function StudentForm(props) {
                 AddrErrors={errors}
               />
             </Grid>
-            <br />
-            <br />
+          </Grid>
+          <br />
 
-            <Grid container>
-              <Grid item xs={12}>
-                <Controls.Button type="submit" text="Submit" />
-                <Controls.Button text="Reset" onClick={resetForm} />
-              </Grid>
+          <Grid container>
+            <Grid item xs={6} sx={{ paddingLeft: "20%" }}>
+              <Controls.Button type="submit" text="Submit" />
+            </Grid>
+            <Grid item xs={6} sx={{ paddingRight: "30%" }}>
+              <Controls.Button text="Reset" onClick={resetForm} />
             </Grid>
           </Grid>
         </Form>

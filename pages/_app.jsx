@@ -1,10 +1,3 @@
-// import '../styles/globals.css'
-
-// function MyApp({ Component, pageProps }) {
-//   return <Component {...pageProps} />
-// }
-
-// export default MyApp
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { ThemeProvider } from "@mui/material/styles";
@@ -16,9 +9,6 @@ import "/styles/globals.css";
 import Header from "../components/header";
 import { useRouter as UseRouter } from "next/router";
 import { Router } from "next/router";
-// import { useRouter } from "next/router";
-
-// import PageHeader from "../components/pageHeader";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -35,7 +25,6 @@ export default function MyApp(props) {
         <CssBaseline />
         <div className="bgimage">
           <Header />
-          {/* <PageHeader /> */}
 
           <Component {...pageProps} />
 

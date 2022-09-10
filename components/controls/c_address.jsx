@@ -6,7 +6,7 @@ import * as States from "../data/states";
 import * as getStates from "../data/states";
 import * as getCountries from "../data/countries";
 
-export default function Address2(props) {
+export default function P_address(props) {
   const { onChange, AddrValues, AddrErrors = null } = props;
 
   return (
@@ -15,44 +15,43 @@ export default function Address2(props) {
         <Grid item xs={12}>
           <Controls.Input
             name="addresstwo"
-            // label="Permanent Address"
             required={true}
-            value={AddrValues.address2}
+            value={AddrValues.addresstwo}
             onChange={onChange}
-            error={AddrErrors.address2}
+            error={AddrErrors.addresstwo}
           />
           <Controls.Input
             name="citytwo"
             label="City"
             required={true}
-            value={AddrValues.city}
+            value={AddrValues.citytwo}
             onChange={onChange}
-            error={AddrErrors.city}
+            error={AddrErrors.citytwo}
           />
           <Controls.Dropdown
             name="stateIDtwo"
             label="State"
             required={true}
-            value={AddrValues.stateID}
+            value={AddrValues.stateIDtwo}
             onChange={onChange}
             options={States.getStates()}
-            error={AddrErrors.stateID}
+            error={AddrErrors.stateIDtwo}
           />
           <Controls.Dropdown
             name="countryIDtwo"
             label="Country"
             required={true}
-            value={AddrValues.countryID}
+            value={AddrValues.countryIDtwo}
             onChange={onChange}
             options={Countries.getCountries()}
-            error={AddrErrors.countryID}
+            error={AddrErrors.countryIDtwo}
           />
           <Controls.Pincode
             name="pincodenumbertwo"
             label="PincodeNumber"
-            // value={values.pincodenumber}
-            // onChange={handleInputChange}
-            // error={errors.pincodenumber}
+            value={AddrValues.pincodenumbertwo}
+            onChange={onChange}
+            error={AddrErrors.pincodenumbertwo}
           />
         </Grid>
       </Grid>
