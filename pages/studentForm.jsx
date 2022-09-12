@@ -4,6 +4,7 @@ import { Form, useForm } from "../components/useForm";
 import { createTheme, Paper, Grid, Stack } from "@mui/material";
 import Controls from "../components/controls/Controls";
 import * as studentService from "../components/Services/studentService";
+import * as employeeService from "../components/Services/employeeService";
 
 const theme = createTheme();
 const useStyles = makeStyles({
@@ -137,6 +138,15 @@ export default function StudentForm(props) {
                 value={values.departmentId}
                 onChange={handleInputChange}
                 options={studentService.getReligionCollection()}
+                error={errors.departmentId}
+              />
+              {/* <Controls.Select */}
+              <Controls.Dropdown
+                label="Department"
+                name="departmentId"
+                value={values.departmentId}
+                onChange={handleInputChange}
+                options={studentService.getDepartmentCollection()}
                 error={errors.departmentId}
               />
 
