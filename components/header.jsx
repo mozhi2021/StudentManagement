@@ -21,6 +21,7 @@ export default function Header() {
           color="text.secondary"
           gutterBottom
           textAlign="center"
+          background
         >
           Student Management
         </Typography>

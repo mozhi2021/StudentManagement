@@ -94,7 +94,7 @@ export default function StudentForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // window.alert(JSON.stringify(values));
+    // localStorage.setItem("name", "Shiva");
 
     if (validate()) {
       window.alert(JSON.stringify(values));
@@ -104,10 +104,9 @@ export default function StudentForm(props) {
   useEffect(() => {
     var today = new Date();
     var birthDate = new Date(values.dateofbirth);
-    // var defaultDate = new Date()
-    // defaultDate.setDate(defaultDate.getDate() + 2)
     var age = today.getFullYear() - birthDate.getFullYear();
     values.age = age + " years";
+    localStorage.setItem("name", values.age);
   }, [values.dateofbirth]);
 
   return (
@@ -140,13 +139,12 @@ export default function StudentForm(props) {
                 options={studentService.getReligionCollection()}
                 error={errors.departmentId}
               />
-              {/* <Controls.Select */}
               <Controls.Dropdown
                 label="Department"
                 name="departmentId"
                 value={values.departmentId}
                 onChange={handleInputChange}
-                options={studentService.getDepartmentCollection()}
+                options={employeeService.getDepartmentCollection()}
                 error={errors.departmentId}
               />
 
@@ -184,7 +182,6 @@ export default function StudentForm(props) {
                   value={values.dateofbirth}
                   onChange={handleInputChange}
                   error={errors.dateofbirth}
-                  // readOnly={readonly || true}
                 />
               </Grid>
               <Grid item width="30%">
